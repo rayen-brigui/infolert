@@ -2,13 +2,23 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-menu-button auto-hide="false"></ion-menu-button>
+      <ion-menu-toggle>   <ion-menu-button > </ion-menu-button> </ion-menu-toggle>
       </ion-buttons>
-      <ion-title>Menu Button</ion-title>
+      <ion-title style="text-align: center">Applications</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content class="ion-padding-top">
+  <ion-content class="padding-top">
+    <ion-menu [type]="menuType" content-id="main-content">
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="light">
+            <ion-label>First Accordion</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">First Content</div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-menu>
     <ion-router-outlet></ion-router-outlet>
   </ion-content>
 </ion-app>
