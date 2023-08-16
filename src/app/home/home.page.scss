@@ -10,7 +10,9 @@
 
     background: url("https://thumbs.gfycat.com/CorruptLinearElk-size_restricted.gif");
     border-radius: 25px;
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     ion-card-header {
         ion-card-title {
@@ -35,4 +37,10 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
+}
+
+swiper-container {
+    background-color: hsl(171, 100%, 80%);
+    height: 250px;
+    border-radius: 0px 0px 20px 20px;
 }
