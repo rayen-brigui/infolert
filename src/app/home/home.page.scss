@@ -1,32 +1,38 @@
 .app-cards-content {
-  padding: 20px;
+    padding: 20px;
 }
+
 
 .app-card {
-  background-color: #2c3e50;
-  color: #ecf0f1;
-  width: auto;
+    //background-color: #2c3e50;
+    color: #ecf0f1;
+    width: auto;
 
-  ion-card-header {
-    ion-card-title {
-      font-size: 24px;
-      color: #3498db;
-      margin-bottom: 5px;
-      font-weight: 600;
-      text-align: center;
-    }
-  }
+    background: url("https://thumbs.gfycat.com/CorruptLinearElk-size_restricted.gif");
+    border-radius: 25px;
+    background-size: contain;
 
-  ion-card-content {
-    p {
-      font-size: 14px;
-      margin-top: 10px;
+    ion-card-header {
+        ion-card-title {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-weight: 600;
+            text-align: center;
+        }
     }
-  }
+
+    ion-card-content {
+        p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    }
 }
+
 .logo-apple-ar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
 }

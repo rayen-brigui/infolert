@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ApplicationsComponent } from './applications.component';
+import { AppChannelsComponent } from './app-channels.component';
 
-describe('ApplicationsComponent', () => {
-  let component: ApplicationsComponent;
-  let fixture: ComponentFixture<ApplicationsComponent>;
+describe('AppChannelsComponent', () => {
+  let component: AppChannelsComponent;
+  let fixture: ComponentFixture<AppChannelsComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ApplicationsComponent ],
+      declarations: [ AppChannelsComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ApplicationsComponent);
+    fixture = TestBed.createComponent(AppChannelsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

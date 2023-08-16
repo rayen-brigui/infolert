@@ -1,14 +1,28 @@
 <ion-app>
-  <ion-header>
+  <ion-header class="no-border">
     <ion-toolbar>
       <ion-buttons slot="start">
-      <ion-menu-toggle>   <ion-menu-button > </ion-menu-button> </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-menu-button autoHide="false" id="main-content">
+          </ion-menu-button>
+        </ion-menu-toggle>
       </ion-buttons>
-      <ion-title style="text-align: center">Applications</ion-title>
+      <ion-title style="text-align: center">Application</ion-title>
     </ion-toolbar>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img
+          src="https://scontent.ftun18-1.fna.fbcdn.net/v/t39.30808-6/345613010_266868399154190_5307718228776610608_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=IL-e8NAWdUMAX96Z2lt&_nc_ht=scontent.ftun18-1.fna&oh=00_AfDAJyGIAR5WDqTNJ14R9c3W_f8ymdEob-mbaLBmPCynJQ&oe=64E0C87D"
+        />
+      </ion-avatar>
+      <ion-label>
+        <p>Hello Rayan!</p>
+        <h3>rayenbrigui92@outlook.fr</h3>
+      </ion-label>
+    </ion-item>
   </ion-header>
 
-  <ion-content class="padding-top">
+  <ion-content class="ion-padding">
     <ion-menu [type]="menuType" content-id="main-content">
       <ion-accordion-group>
         <ion-accordion value="first">
