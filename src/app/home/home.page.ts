@@ -5,6 +5,9 @@ import { CommonModule } from '@angular/common'; // import function to register S
 import { register } from 'swiper/element';
 import { IonicSlides } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ChannelListComponent } from '../channel-list/channel-list.component';
+import { NavController } from '@ionic/angular';
+
 // register Swiper custom elements
 register();
 
@@ -15,12 +18,16 @@ register();
   styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [IonicModule, FormsModule, CommonModule],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomePage {
-  constructor() {}
-  swiperModules = [IonicSlides];
+  constructor(private navCtrl: NavController) {}
 
+  navigateToChannelList(object:string) {
+    this.navCtrl.navigateForward(`/apps/${object}`);
+  }
+  swiperModules = [IonicSlides];
+  component = ChannelListComponent;
   subscriptions = [
     {
       SK: 'App2-Channel2',
@@ -74,22 +81,23 @@ export class HomePage {
   ];
 
   uniquePKs: string[] = [];
-
+  uniquePKArray: { PK: string; Descriptions: string[] }[] = [];
   ngOnInit() {
     this.extractUniquePKs();
   }
-
   private extractUniquePKs() {
-    const uniquePKSet = new Set<string>();
+    
 
     for (const subscription of this.subscriptions) {
-      uniquePKSet.add(subscription.PK);
-    }
+      const { PK, Description } = subscription;
+      const existingEntry = this.uniquePKArray.find((entry) => entry.PK === PK);
 
-    this.uniquePKs = Array.from(uniquePKSet);
-    console.log('====================================');
-    console.log(this.uniquePKs);
-    console.log('====================================');
+      if (existingEntry) {
+        existingEntry.Descriptions.push(Description);
+      } else {
+        this.uniquePKArray.push({ PK, Descriptions: [Description] });
+      }
+    }
+    this.uniquePKs = this.uniquePKArray.map((entry) => entry.PK);
   }
-  
 }

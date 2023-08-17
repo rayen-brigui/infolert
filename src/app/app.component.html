@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-header class="no-border">
+  <ion-header class="ion-no-border">
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-toggle>
@@ -8,7 +8,9 @@
         </ion-menu-toggle>
       </ion-buttons>
       <ion-title style="text-align: center">Application</ion-title>
-      <ion-icon name="notifications" slot="end"></ion-icon>
+      <ion-buttons slot="end">
+        <ion-button> <ion-icon name="notifications"></ion-icon></ion-button>
+      </ion-buttons>
     </ion-toolbar>
     <ion-item lines="none">
       <ion-avatar slot="start">
@@ -17,8 +19,8 @@
         />
       </ion-avatar>
       <ion-label>
-        <p>Hello Rayan!</p>
-        <h3>rayenbrigui92@outlook.fr</h3>
+        <h3>Hello Rayan!</h3>
+        <p>rayenbrigui92@outlook.fr</p>
       </ion-label>
     </ion-item>
   </ion-header>
@@ -36,4 +38,9 @@
     </ion-menu>
     <ion-router-outlet></ion-router-outlet>
   </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-title>Footer Toolbar</ion-title>
+    </ion-toolbar>
+  </ion-footer>
 </ion-app>

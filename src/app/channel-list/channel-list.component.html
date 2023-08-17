@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Channel List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-accordion-group [multiple]="true" *ngFor="let channel of channels">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>{{ channel.name }}</ion-label>
+      </ion-item>
+      <div
+        class="ion-padding"
+        slot="content"
+        *ngFor="let message of channel.messages"
+      >
+        <ion-label>{{ message }}</ion-label
+        ><br />
+        <ion-label>{{ message }}</ion-label>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

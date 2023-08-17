@@ -1,10 +1,10 @@
 <ion-content class="app-cards-content">
-  <ng-container>
-    <ion-text>subscribed apps found:</ion-text>
+  <div class="container">
+    <ion-text>Your Apps: </ion-text>
 
-    <swiper-container [slidesPerView]="1.3">
-      <swiper-slide *ngFor="let pk of uniquePKs">
-        <ion-card class="app-card">
+    <swiper-container [slidesPerView]="2.3">
+      <swiper-slide *ngFor="let pk of uniquePKArray">
+        <ion-card class="app-card" (click)="navigateToChannelList(pk.PK)">
           <ion-card-content class="logo-apple-ar">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -112,10 +112,10 @@
             </svg>
           </ion-card-content>
           <ion-card-header>
-            <ion-card-title>{{ pk }}</ion-card-title>
+            <ion-card-title>{{pk.PK}}</ion-card-title>
           </ion-card-header>
         </ion-card></swiper-slide
       >
     </swiper-container>
-  </ng-container>
+  </div>
 </ion-content>

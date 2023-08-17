@@ -39,8 +39,15 @@
     align-content: center;
 }
 
-swiper-container {
-    background-color: hsl(171, 100%, 80%);
+ion-text {
+    background-color: #1E1E1E;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.container {
+    background-color: #1E1E1E;
     height: 250px;
     border-radius: 0px 0px 20px 20px;
+    text-align: center;
 }
