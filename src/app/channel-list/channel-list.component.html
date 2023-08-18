@@ -15,8 +15,7 @@
         slot="content"
         *ngFor="let message of channel.messages"
       >
-        <ion-label>{{ message.title }}</ion-label> <br />
-        <ion-label>{{ message.createdAt | date : "mediumTime" }}</ion-label>
+        <ion-label>{{ message.title }}</ion-label> 
       </div>
     </ion-accordion>
   </ion-accordion-group>

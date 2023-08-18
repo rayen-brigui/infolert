@@ -80,16 +80,36 @@ export class ChannelListComponent {
       application: 'App2',
     },
   ];
+  
   mergeData(md: string) {
-    this.mergedChannels = this.subscriptions
-      .filter((subscription) => subscription.PK === md)
-      .map((subscription) => {
-        return {
-          title: subscription.Description,
-          messages: this.channels.filter(
-            (channel) => channel.PK === subscription.SK
-          ),
-        };
-      });
+    console.log('====================================');
+    console.log(this.channels);
+    console.log('====================================');
+this.channels.filter((channel) => channel.application === md);    
+    console.log(this.channels);
+    console.log('====================================');
+    this.mergedChannels = this.subscriptions.map((subscription) => {
+      const matchingChannels = this.channels.filter(
+        (channel) => channel.PK === subscription.SK
+      );
+
+      if (matchingChannels.length === 0) {
+        const matchingChannel = this.channels.find(
+          (channel) => channel.application === subscription.PK
+        );
+
+        if (matchingChannel) {
+          return {
+            title: matchingChannel.PK,
+            messages: [matchingChannel],
+          };
+        }
+      }
+
+      return {
+        title: subscription.Description,
+        messages: matchingChannels,
+      };
+    });
   }
 }
