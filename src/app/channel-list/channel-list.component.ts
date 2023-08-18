@@ -12,16 +12,42 @@ import { ActivatedRoute } from '@angular/router';
   imports: [IonicModule, FormsModule, CommonModule],
 })
 export class ChannelListComponent {
+  mergedChannels: any[] = []; // This will hold the final merged data
+
   constructor(private route: ActivatedRoute) {}
+
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      const itemId = params['id'];
-      // Use itemId to fetch and display item details
+      const md = params['id'];
+      this.mergeData(md);
       console.log('====================================');
-      console.log(itemId);
+      console.log(this.mergedChannels);
       console.log('====================================');
     });
   }
+
+  subscriptions = [
+    {
+      SK: 'App1-defaultChannel',
+      ChannelName: 'App1-defaultChannel',
+      Description: 'default Channel',
+      PK: 'App1',
+    },
+
+    {
+      SK: 'App1-Channel1',
+      ChannelName: 'App1-Channel1',
+      Description: 'Channel1',
+      PK: 'App1',
+    },
+
+    {
+      SK: 'App2-defaultChannel',
+      ChannelName: 'App2-defaultChannel',
+      Description: 'default Channel',
+      PK: 'App2',
+    },
+  ];
 
   channels = [
     {
@@ -33,6 +59,7 @@ export class ChannelListComponent {
       TTL: 1683724546,
       application: 'App1',
     },
+
     {
       PK: 'App1-Channel1',
       SK: 'b6d9f5150955',
@@ -42,6 +69,7 @@ export class ChannelListComponent {
       TTL: 1684399321,
       application: 'App1',
     },
+
     {
       PK: 'App2-defaultChannel',
       SK: 'd45219bc84d68e165',
@@ -52,10 +80,16 @@ export class ChannelListComponent {
       application: 'App2',
     },
   ];
-}
-
-interface Channel {
-  name: string;
-  messages: string[];
-  showMessages: boolean;
+  mergeData(md: string) {
+    this.mergedChannels = this.subscriptions
+      .filter((subscription) => subscription.PK === md)
+      .map((subscription) => {
+        return {
+          title: subscription.Description,
+          messages: this.channels.filter(
+            (channel) => channel.PK === subscription.SK
+          ),
+        };
+      });
+  }
 }

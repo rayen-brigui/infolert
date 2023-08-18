@@ -2,7 +2,7 @@
   <div class="container">
     <ion-text>Subscribed Apps Found </ion-text>
 
-    <swiper-container [slidesPerView]="2.3">
+    <swiper-container [slidesPerView]="2.2" [pagination]="true">
       <swiper-slide *ngFor="let pk of uniquePKArray">
         <ion-card class="app-card" (click)="navigateToChannelList(pk.PK)">
           <ion-card-content class="logo-apple-ar">
@@ -118,40 +118,7 @@
       >
     </swiper-container>
   </div>
-  <div>
-    <ion-list-header>
-      <ion-label>Latest Notifications</ion-label>
-    </ion-list-header>
-    <ion-item-group>
-      <ion-item-divider>
-        <ion-label>A</ion-label>
-      </ion-item-divider>
-
-      <ion-item>
-        <ion-label>Angola</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Argentina</ion-label>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label>Armenia</ion-label>
-      </ion-item>
-    </ion-item-group>
-
-    <ion-item-group>
-      <ion-item-divider>
-        <ion-label>B</ion-label>
-      </ion-item-divider>
-
-      <ion-item>
-        <ion-label>Bangladesh</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Belarus</ion-label>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label>Belgium</ion-label>
-      </ion-item>
-    </ion-item-group>
+  <div style="text-align: center">
+    <img src="../../assets/logo1.png" alt="" />
   </div>
 </ion-content>

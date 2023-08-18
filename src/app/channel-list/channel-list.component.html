@@ -5,19 +5,18 @@
 </ion-header>
 
 <ion-content>
-  <ion-accordion-group [multiple]="true" *ngFor="let channel of channels">
+  <ion-accordion-group [multiple]="true" *ngFor="let channel of mergedChannels">
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
-        <ion-label>{{ channel.PK }}</ion-label>
+        <ion-label>{{ channel.title }}</ion-label>
       </ion-item>
       <div
         class="ion-padding"
         slot="content"
-        *ngFor="let message of channels"
+        *ngFor="let message of channel.messages"
       >
-        <ion-label>{{ message.title }}</ion-label
-        ><br />
-        <ion-label>{{ message.title }}</ion-label>
+        <ion-label>{{ message.title }}</ion-label> <br />
+        <ion-label>{{ message.createdAt | date : "mediumTime" }}</ion-label>
       </div>
     </ion-accordion>
   </ion-accordion-group>

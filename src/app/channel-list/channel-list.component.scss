@@ -1,0 +1,47 @@
+ion-content.container {
+    padding: 20px;
+}
+
+.channel-item {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.channel-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+.messages-list {
+    padding: 0;
+}
+
+.message-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 15px;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+}
+
+.message-icon {
+    font-size: 20px;
+    color: #888;
+    margin-right: 8px;
+}
+
+.message-time {
+    font-size: 14px;
+    color: #888;
+}
+
+.message-body {
+    margin-top: 5px;
+    font-size: 16px;
+}

@@ -7,7 +7,6 @@ import { IonicSlides } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChannelListComponent } from '../channel-list/channel-list.component';
 import { NavController } from '@ionic/angular';
-
 // register Swiper custom elements
 register();
 
@@ -23,7 +22,7 @@ register();
 export class HomePage {
   constructor(private navCtrl: NavController) {}
 
-  navigateToChannelList(object:string) {
+  navigateToChannelList(object: string) {
     this.navCtrl.navigateForward(`/apps/${object}`);
   }
   swiperModules = [IonicSlides];
@@ -86,8 +85,6 @@ export class HomePage {
     this.extractUniquePKs();
   }
   private extractUniquePKs() {
-    
-
     for (const subscription of this.subscriptions) {
       const { PK, Description } = subscription;
       const existingEntry = this.uniquePKArray.find((entry) => entry.PK === PK);
