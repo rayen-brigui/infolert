@@ -39,15 +39,16 @@
     align-content: center;
 }
 
-ion-text {
-    background-color: #1E1E1E;
-    font-size: 25px;
-    padding: 10px;
-}
+
 
 .container {
     background-color: #1E1E1E;
-    height: 250px;
+    height: 300px;
     border-radius: 0px 0px 20px 20px;
     text-align: center;
+    ion-text {
+            background-color: #1E1E1E;
+            font-size: 25px;
+            padding: 10px;
+        }
 }

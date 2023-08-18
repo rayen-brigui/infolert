@@ -8,16 +8,16 @@
   <ion-accordion-group [multiple]="true" *ngFor="let channel of channels">
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
-        <ion-label>{{ channel.name }}</ion-label>
+        <ion-label>{{ channel.PK }}</ion-label>
       </ion-item>
       <div
         class="ion-padding"
         slot="content"
-        *ngFor="let message of channel.messages"
+        *ngFor="let message of channels"
       >
-        <ion-label>{{ message }}</ion-label
+        <ion-label>{{ message.title }}</ion-label
         ><br />
-        <ion-label>{{ message }}</ion-label>
+        <ion-label>{{ message.title }}</ion-label>
       </div>
     </ion-accordion>
   </ion-accordion-group>

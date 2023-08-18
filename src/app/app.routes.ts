@@ -12,14 +12,17 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'channels', // New route for ChannelListPage
-    component: ChannelListComponent,
-  },
-  {
     path: 'apps/:id',
     loadComponent: () =>
       import('./channel-list/channel-list.component').then(
         (m) => m.ChannelListComponent
+      ),
+  },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./about/about.component').then(
+        (m) => m.AboutComponent
       ),
   },
 ];

@@ -1,6 +1,6 @@
 <ion-content class="app-cards-content">
   <div class="container">
-    <ion-text>Your Apps: </ion-text>
+    <ion-text>Subscribed Apps Found </ion-text>
 
     <swiper-container [slidesPerView]="2.3">
       <swiper-slide *ngFor="let pk of uniquePKArray">
@@ -117,5 +117,41 @@
         </ion-card></swiper-slide
       >
     </swiper-container>
+  </div>
+  <div>
+    <ion-list-header>
+      <ion-label>Latest Notifications</ion-label>
+    </ion-list-header>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>A</ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-label>Angola</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Argentina</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Armenia</ion-label>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>B</ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-label>Bangladesh</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Belarus</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Belgium</ion-label>
+      </ion-item>
+    </ion-item-group>
   </div>
 </ion-content>

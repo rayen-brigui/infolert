@@ -37,10 +37,20 @@
       </ion-accordion-group>
     </ion-menu>
     <ion-router-outlet></ion-router-outlet>
+    <ion-tabs>
+      <!-- Tab bar -->
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home">
+          <ion-icon name="home" aria-hidden="true"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="about">
+          <ion-icon name="information-circle" aria-hidden="true"></ion-icon>
+          <ion-label>About</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
   </ion-content>
-  <ion-footer>
-    <ion-toolbar>
-      <ion-title>Footer Toolbar</ion-title>
-    </ion-toolbar>
-  </ion-footer>
+  <ion-footer hidden> </ion-footer>
 </ion-app>
