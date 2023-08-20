@@ -15,14 +15,11 @@ export class ChannelListComponent {
   mergedNotifications: any[] = []; // This will hold the final merged data
 
   constructor(private route: ActivatedRoute) {}
-
+md:any='';
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      const md = params['id'];
-      this.mergeData(md);
-      console.log('====================================');
-      console.log(this.mergedNotifications);
-      console.log('====================================');
+       this.md = params['id'];
+      this.mergeData(this.md);
     });
   }
 
@@ -82,10 +79,14 @@ export class ChannelListComponent {
   ];
   
   mergeData(md: string) {
-    console.log(this.Notifications);
+    this.Notifications=this.Notifications.filter(
+      (notif) =>  notif.application === md );
+      this.subscriptions=this.subscriptions.filter(
+        (sub) =>  sub.PK === md );
+
     this.mergedNotifications = this.subscriptions.map((subscription) => {
       const matchingNotifications = this.Notifications.filter(
-        (notif) => notif.PK === subscription.SK
+        (notif) =>  notif.PK === subscription.SK 
       );
                         
       if (matchingNotifications.length === 0) {

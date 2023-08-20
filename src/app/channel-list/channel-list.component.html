@@ -1,6 +1,115 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header  >
+  <ion-toolbar style="text-align: center;" >
+  <div class="headercontainer">
+
     <ion-title>Channel List</ion-title>
+    <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="100px"
+              height="100px"
+              class="ionicon"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M201.14 64L256 32l54.86 32"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+                d="M256 32v80"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M310.86 448L256 480l-54.86-32"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+                d="M256 480v-80"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M64 207.51V144l53.15-31.51"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+                d="M64 144l67.29 40"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M448 304.49V368l-53.15 31.51"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+                d="M448 368l-67.29-40"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M117.15 400L64 368v-63.51"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+                d="M64 368l66.64-40"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M394.85 112.49L448 144v63.51"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+                d="M448 144l-67.29 40M256 320v-64l54.86-32M256 256l-54.86-32"
+              />
+            </svg>
+    <ion-title>{{md}}</ion-title>
+  </div>
+
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +125,11 @@
         *ngFor="let message of channel.messages"
       >
         <ion-label>{{ message.title }}</ion-label> 
+        <span style="font-size: 10px;">{{message.createdAt | date }} {{message.createdAt| date: 'h:mm a'}}</span>
       </div>
     </ion-accordion>
   </ion-accordion-group>
+  <div style="text-align: center">
+    <img src="../../assets/logo1.png" alt="" />
+  </div>
 </ion-content>

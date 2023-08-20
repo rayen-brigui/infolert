@@ -1,47 +1,73 @@
-ion-content.container {
+.headercontainer {
+    background: url('../../assets/bgGif.gif'); /* Background color for the header container */
+    padding: 10px; /* Add some padding for spacing */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    background-size: cover;
+    
+  }
+  
+  ion-content {
     padding: 20px;
-}
-
-.channel-item {
-    background-color: #fff;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.channel-title {
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
-    padding: 15px;
-}
-
-.messages-list {
-    padding: 0;
-}
-
-.message-item {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 15px;
-}
-
-.message-header {
+    background-color: #ecf0f1;
+    animation: fade-in 1s ease-in-out;
+  }
+  
+  .ionicon {
+    margin-right: 10px;
+  }
+  
+  ion-title {
     display: flex;
     align-items: center;
-}
-
-.message-icon {
-    font-size: 20px;
-    color: #888;
-    margin-right: 8px;
-}
-
-.message-time {
-    font-size: 14px;
-    color: #888;
-}
-
-.message-body {
-    margin-top: 5px;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+  }
+  ion-accordion {
+    border: 1px solid #f8f8f8;
+    border-radius: 5px;
+    margin: 10px 0;
+    background-color: #00000056;
+  }
+  
+  ion-item[slot='header'] {
+    background-color: #000000;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  ion-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  ion-accordion-group {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+    
+  .ion-padding {
+    padding: 10px;
+    border-top: 1px solid #dcdcdc;
+  }
+  
+  ion-label {
     font-size: 16px;
+  }
+  
+  ion-label:nth-child(2) {
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  @keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
