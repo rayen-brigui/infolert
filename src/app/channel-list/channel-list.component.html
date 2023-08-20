@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-accordion-group [multiple]="true" *ngFor="let channel of mergedChannels">
+  <ion-accordion-group [multiple]="true" *ngFor="let channel of mergedNotifications">
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
         <ion-label>{{ channel.title }}</ion-label>

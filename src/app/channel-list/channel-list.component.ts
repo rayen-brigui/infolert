@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   imports: [IonicModule, FormsModule, CommonModule],
 })
 export class ChannelListComponent {
-  mergedChannels: any[] = []; // This will hold the final merged data
+  mergedNotifications: any[] = []; // This will hold the final merged data
 
   constructor(private route: ActivatedRoute) {}
 
@@ -21,7 +21,7 @@ export class ChannelListComponent {
       const md = params['id'];
       this.mergeData(md);
       console.log('====================================');
-      console.log(this.mergedChannels);
+      console.log(this.mergedNotifications);
       console.log('====================================');
     });
   }
@@ -49,7 +49,7 @@ export class ChannelListComponent {
     },
   ];
 
-  channels = [
+  Notifications = [
     {
       PK: 'mohamed.salah@draexlmaier.com',
       SK: 'acf364e530',
@@ -82,33 +82,25 @@ export class ChannelListComponent {
   ];
   
   mergeData(md: string) {
-    console.log('====================================');
-    console.log(this.channels);
-    console.log('====================================');
-this.channels.filter((channel) => channel.application === md);    
-    console.log(this.channels);
-    console.log('====================================');
-    this.mergedChannels = this.subscriptions.map((subscription) => {
-      const matchingChannels = this.channels.filter(
-        (channel) => channel.PK === subscription.SK
+    console.log(this.Notifications);
+    this.mergedNotifications = this.subscriptions.map((subscription) => {
+      const matchingNotifications = this.Notifications.filter(
+        (notif) => notif.PK === subscription.SK
       );
-
-      if (matchingChannels.length === 0) {
-        const matchingChannel = this.channels.find(
-          (channel) => channel.application === subscription.PK
-        );
+                        
+      if (matchingNotifications.length === 0) {
+        const matchingChannel = this.Notifications.find(
+          (channel) => channel.application === subscription.PK);
 
         if (matchingChannel) {
           return {
             title: matchingChannel.PK,
-            messages: [matchingChannel],
-          };
-        }
+            messages: [matchingChannel],};}
       }
 
       return {
         title: subscription.Description,
-        messages: matchingChannels,
+        messages: matchingNotifications,
       };
     });
   }
