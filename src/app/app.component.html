@@ -13,7 +13,9 @@
       <ion-buttons slot="end">
         <ion-button> <ion-icon name="notifications"></ion-icon></ion-button>
       </ion-buttons>
+      
     </ion-toolbar>
+    
     <ion-item lines="none">
       <ion-avatar slot="start">
         <img
@@ -25,10 +27,11 @@
         <p>rayenbrigui92@outlook.fr</p>
       </ion-label>
     </ion-item>
+    
   </ion-header>
 
   <ion-content class="ion-padding">
-    <ion-menu [type]="menuType" content-id="main-content">
+    <ion-menu [type]="menuType" content-id="main-content" class="menuWrpper">
       <ion-accordion-group>
         <ion-accordion value="first">
           <ion-item slot="header" color="light">

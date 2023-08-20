@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
+import { IonModal } from '@ionic/angular';
+import { OverlayEventDetail } from '@ionic/core/components';
 @Component({
   selector: 'app-channel-list',
   templateUrl: './channel-list.component.html',
@@ -105,4 +106,51 @@ md:any='';
       };
     });
   }
+
+/******************* */
+
+  @ViewChild(IonModal)
+  modal!: IonModal;
+message:string='';
+msg:msg={
+  PK: '',
+  SK: '',
+  body: '',
+  createdAt: '2023-05-03 13:15:46.966998',
+  title: '',
+  TTL: 0,
+  application: '',
+};
+name:string=''
+  cancel() {
+    this.modal.dismiss();
+  }
+
+  confirm() {
+    // Handle the confirmation logic here, e.g., save the name
+    this.modal.dismiss({ name: this.name });
+  }
+  async openModal(msg:any) {
+   this.msg=msg;
+    return await this.modal.present();
+  }
+
+  onWillDismiss(event: Event) {
+    const ev = event as CustomEvent<OverlayEventDetail<string>>;
+    if (ev.detail.role === 'confirm') {
+      this.message = `Hello, ${ev.detail.data}!`;
+    }
+  }
+
+
+}
+
+interface msg {
+  PK: string;
+  SK: string;
+  TTL: number;
+  application: string;
+  body: string;
+  createdAt: string;
+  title: string;
 }

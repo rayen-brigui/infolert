@@ -123,13 +123,42 @@
         class="ion-padding"
         slot="content"
         *ngFor="let message of channel.messages"
-      >
+      ><span (click)="openModal(message)" expand="block">
         <ion-label>{{ message.title }}</ion-label> 
-        <span style="font-size: 10px;">{{message.createdAt | date }} {{message.createdAt| date: 'h:mm a'}}</span>
+        <span style="font-size: 10px;">{{message.createdAt | date }} {{message.createdAt| date: 'h:mm a'}}</span></span>
       </div>
     </ion-accordion>
   </ion-accordion-group>
   <div style="text-align: center">
     <img src="../../assets/logo1.png" alt="" />
   </div>
+   <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)" >
+    <ng-template >
+      <ion-header >
+        <ion-toolbar >
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Return</ion-button>
+          </ion-buttons>
+          <ion-title>Message</ion-title>
+          
+        </ion-toolbar>
+      </ion-header>
+      <ion-content >
+        <ion-item>
+          <ion-label>{{ msg.title }}</ion-label>
+        </ion-item>
+        
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ msg.createdAt | date: 'MMM d, yyyy' }}</ion-card-subtitle>
+            <ion-card-title>{{ msg.application }}</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <p>{{ msg.body }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
