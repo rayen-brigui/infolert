@@ -76,6 +76,18 @@ export class HomePage {
       Description: 'default Channel',
       PK: 'App2',
     },
+    {
+      SK: 'App2-defaultChannel',
+      ChannelName: 'App2-defaultChannel',
+      Description: 'default Channel',
+      PK: 'App5',
+    },
+    {
+      SK: 'App6-defaultChannel',
+      ChannelName: 'App6-defaultChannel',
+      Description: 'default Channel',
+      PK: 'App6',
+    },
     // Add more entries here
   ];
 

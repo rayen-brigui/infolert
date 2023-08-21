@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,10 +16,10 @@ export class ChannelListComponent {
   mergedNotifications: any[] = []; // This will hold the final merged data
 
   constructor(private route: ActivatedRoute) {}
-md:any='';
+  md: any = '';
   ngOnInit() {
     this.route.params.subscribe((params) => {
-       this.md = params['id'];
+      this.md = params['id'];
       this.mergeData(this.md);
     });
   }
@@ -61,9 +61,9 @@ md:any='';
     {
       PK: 'App1-Channel1',
       SK: 'b6d9f5150955',
-      body: 'it works ',
+      body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. dard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum ',
       createdAt: '2023-05-11 08:42:01.490251',
-      title: 'this is my demo',
+      title: 'Critical Notification',
       TTL: 1684399321,
       application: 'App1',
     },
@@ -71,33 +71,36 @@ md:any='';
     {
       PK: 'App2-defaultChannel',
       SK: 'd45219bc84d68e165',
-      body: 'it works ',
+      body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. dard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum ',
       createdAt: '2023-05-26 08:29:11.035910',
-      title: 'this is my demo title  001',
+      title: 'Critical Notification',
       TTL: 1684398551,
       application: 'App2',
     },
   ];
-  
+
   mergeData(md: string) {
-    this.Notifications=this.Notifications.filter(
-      (notif) =>  notif.application === md );
-      this.subscriptions=this.subscriptions.filter(
-        (sub) =>  sub.PK === md );
+    this.Notifications = this.Notifications.filter(
+      (notif) => notif.application === md
+    );
+    this.subscriptions = this.subscriptions.filter((sub) => sub.PK === md);
 
     this.mergedNotifications = this.subscriptions.map((subscription) => {
       const matchingNotifications = this.Notifications.filter(
-        (notif) =>  notif.PK === subscription.SK 
+        (notif) => notif.PK === subscription.SK
       );
-                        
+
       if (matchingNotifications.length === 0) {
         const matchingChannel = this.Notifications.find(
-          (channel) => channel.application === subscription.PK);
+          (channel) => channel.application === subscription.PK
+        );
 
         if (matchingChannel) {
           return {
             title: matchingChannel.PK,
-            messages: [matchingChannel],};}
+            messages: [matchingChannel],
+          };
+        }
       }
 
       return {
@@ -107,21 +110,21 @@ md:any='';
     });
   }
 
-/******************* */
+  /******************* */
 
   @ViewChild(IonModal)
   modal!: IonModal;
-message:string='';
-msg:msg={
-  PK: '',
-  SK: '',
-  body: '',
-  createdAt: '2023-05-03 13:15:46.966998',
-  title: '',
-  TTL: 0,
-  application: '',
-};
-name:string=''
+  message: string = '';
+  msg: msg = {
+    PK: '',
+    SK: '',
+    body: '',
+    createdAt: '2023-05-03 13:15:46.966998',
+    title: '',
+    TTL: 0,
+    application: '',
+  };
+  name: string = '';
   cancel() {
     this.modal.dismiss();
   }
@@ -130,8 +133,8 @@ name:string=''
     // Handle the confirmation logic here, e.g., save the name
     this.modal.dismiss({ name: this.name });
   }
-  async openModal(msg:any) {
-   this.msg=msg;
+  async openModal(msg: any) {
+    this.msg = msg;
     return await this.modal.present();
   }
 
@@ -141,8 +144,8 @@ name:string=''
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
-
-
+  /******************** */
+  public alertButtons = ['OK'];
 }
 
 interface msg {

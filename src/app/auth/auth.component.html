@@ -1,0 +1,44 @@
+<ion-header>
+  <!-- Header content here -->
+</ion-header>
+
+<ion-content>
+  <!-- Login Form -->
+  <ion-item class="auth-form" [hidden]="showSignUpForm">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" [(ngModel)]="loginEmail"></ion-input>
+  </ion-item>
+
+  <ion-item class="auth-form" [hidden]="showSignUpForm">
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="loginPassword"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="login()" [hidden]="showSignUpForm"
+    >Login</ion-button
+  >
+
+  <!-- Sign Up Form -->
+  <ion-item class="auth-form" [hidden]="!showSignUpForm">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" [(ngModel)]="signupEmail"></ion-input>
+  </ion-item>
+
+  <ion-item class="auth-form" [hidden]="!showSignUpForm">
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="signupPassword"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="signup()" [hidden]="!showSignUpForm"
+    >Sign Up</ion-button
+  >
+
+  <!-- Toggle Button -->
+  <ion-button expand="full" (click)="toggleForms()">
+    {{
+      showSignUpForm
+        ? "Already have an account? Login"
+        : "Don't have an account? Sign Up"
+    }}
+  </ion-button>
+</ion-content>

@@ -11,22 +11,13 @@
         ><img src="../assets/icon/favicon.png" alt="" height="50px"
       /></ion-title>
       <ion-buttons slot="end">
-        <ion-button> <ion-icon name="notifications"></ion-icon></ion-button>
+        <ion-button id="notificationButton" expand="full">
+          <ion-icon name="notifications" size="large"></ion-icon>
+          <ion-badge id="notificationBadge" color="danger">5</ion-badge>
+        </ion-button>
       </ion-buttons>
-      
     </ion-toolbar>
-    
-    <ion-item lines="none">
-      <ion-avatar slot="start">
-        <img
-          src="https://cdn.discordapp.com/attachments/969646135717290015/1142833487687196772/Latin_American_with_elegant_clothe_16c67824-1100-4795-8cb2-5aaaac5ab0ca.png"
-        />
-      </ion-avatar>
-      <ion-label>
-        <h3>Hello Rayan!</h3>
-        <p>rayenbrigui92@outlook.fr</p>
-      </ion-label>
-    </ion-item>
+
     
   </ion-header>
 
@@ -41,9 +32,9 @@
         </ion-accordion>
       </ion-accordion-group>
     </ion-menu>
-    
+
     <ion-router-outlet></ion-router-outlet>
-    
+
     <ion-tabs>
       <!-- Tab bar -->
       <ion-tab-bar slot="bottom">
