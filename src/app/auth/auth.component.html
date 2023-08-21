@@ -4,32 +4,42 @@
 
 <ion-content>
   <!-- Login Form -->
-  <ion-item class="auth-form" [hidden]="showSignUpForm">
+  <ion-item class="auth-form" *ngIf="!showSignUpForm">
     <ion-label position="floating">Email</ion-label>
     <ion-input type="email" [(ngModel)]="loginEmail"></ion-input>
   </ion-item>
 
-  <ion-item class="auth-form" [hidden]="showSignUpForm">
+  <ion-item class="auth-form" *ngIf="!showSignUpForm">
     <ion-label position="floating">Password</ion-label>
     <ion-input type="password" [(ngModel)]="loginPassword"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="login()" [hidden]="showSignUpForm"
+  <ion-button expand="full" (click)="login()" *ngIf="!showSignUpForm"
     >Login</ion-button
   >
 
   <!-- Sign Up Form -->
-  <ion-item class="auth-form" [hidden]="!showSignUpForm">
+  <ion-item class="auth-form" *ngIf="showSignUpForm">
+    <ion-label position="floating">First Name</ion-label>
+    <ion-input type="text" [(ngModel)]="signupFname"></ion-input>
+  </ion-item><ion-item class="auth-form" *ngIf="showSignUpForm">
+    <ion-label position="floating">Last Name</ion-label>
+    <ion-input type="text" [(ngModel)]="signupLname" ></ion-input>
+  </ion-item><ion-item class="auth-form" *ngIf="showSignUpForm">
     <ion-label position="floating">Email</ion-label>
     <ion-input type="email" [(ngModel)]="signupEmail"></ion-input>
   </ion-item>
 
-  <ion-item class="auth-form" [hidden]="!showSignUpForm">
+  <ion-item class="auth-form" *ngIf="showSignUpForm">
     <ion-label position="floating">Password</ion-label>
     <ion-input type="password" [(ngModel)]="signupPassword"></ion-input>
   </ion-item>
+  <ion-item class="auth-form" *ngIf="showSignUpForm">
+    <ion-label position="floating">Confirm Password</ion-label>
+    <ion-input type="password" [(ngModel)]="signupPassword"></ion-input>
+  </ion-item>
 
-  <ion-button expand="full" (click)="signup()" [hidden]="!showSignUpForm"
+  <ion-button expand="full" (click)="signup()" *ngIf="showSignUpForm"
     >Sign Up</ion-button
   >
 
