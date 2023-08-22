@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { IonModal } from '@ionic/angular';
@@ -14,8 +14,14 @@ import { OverlayEventDetail } from '@ionic/core/components';
 })
 export class ChannelListComponent {
   mergedNotifications: any[] = []; // This will hold the final merged data
+  constructor(private route: ActivatedRoute, private datePipe: DatePipe) {}
 
-  constructor(private route: ActivatedRoute) {}
+  getTimeSinceReceived(createdAt: Date): string {
+    const now = new Date();
+    const timeDifference = now.getTime() - createdAt.getTime();
+    const formattedTime = this.datePipe.transform(timeDifference, 'h:mm:ss');
+    return formattedTime || ''; // Provide a default value if formattedTime is null
+  }
   md: any = '';
   ngOnInit() {
     this.route.params.subscribe((params) => {

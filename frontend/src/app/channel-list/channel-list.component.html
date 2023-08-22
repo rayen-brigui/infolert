@@ -112,21 +112,6 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-accordion-group [multiple]="true" *ngFor="let channel of mergedNotifications">
-    <ion-accordion value="first">
-      <ion-item slot="header" color="light">
-        <ion-label>{{ channel.title }}</ion-label>
-      </ion-item>
-      <div
-        class="ion-padding"
-        slot="content"
-        *ngFor="let message of channel.messages"
-      ><span (click)="openModal(message)" expand="block">
-        <ion-label>{{ message.title }}</ion-label> 
-        <span style="font-size: 10px;">{{message.createdAt | date }} {{message.createdAt| date: 'h:mm a'}}</span></span>
-      </div>
-    </ion-accordion>
-  </ion-accordion-group> -->
   <ion-list *ngFor="let channel of mergedNotifications">
     <ion-item-divider color="light">
       {{ channel.title }}
@@ -136,10 +121,16 @@
       *ngFor="let message of channel.messages"
       (click)="openModal(message)"
     >
+      <!-- Add badge to mark read notifications -->
+      <ion-badge *ngIf="!message.read" color="success">New</ion-badge>
+
       <ion-label>{{ message.title }}</ion-label>
       <ion-label slot="end" style="font-size: 10px">
         {{ message.createdAt | date }} {{ message.createdAt | date : "h:mm a" }}
       </ion-label>
+      <ion-label slot="end" style="font-size: 10px">
+  {{ getTimeSinceReceived(message.createdAt) }} ago
+</ion-label>
     </ion-item>
   </ion-list>
   <div style="text-align: center">

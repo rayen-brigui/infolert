@@ -1,0 +1,61 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http:/git-scm.com/docs/gitignore
+
+frontend/*~
+frontend/*.sw[mnpcod]
+frontend/.tmp
+frontend/*.tmp
+frontend/*.tmp.*
+frontend/UserInterfaceState.xcuserstate
+frontend/$RECYCLE.BIN/
+
+frontend/*.log
+frontend/log.txt
+
+
+frontend/.sourcemaps
+frontend/.versions
+frontend/coverage
+
+frontend/# Ionic
+frontend/.ionic
+frontend/www
+frontend/platforms
+frontend/plugins
+frontend/# Compiled output
+frontend/dist
+frontend/tmp
+frontend/out-tsc
+frontend/bazel-out
+frontend/# Node
+frontend/node_modules
+frontend/npm-debug.log
+frontend/yarn-error.log
+frontend/# IDEs and editors
+frontend/.idea/
+frontend/.project
+frontend/.classpath
+frontend/.c9/
+frontend/*.launch
+frontend/.settings/
+frontend/*.sublime-project
+frontend/*.sublime-workspace
+frontend/# Visual Studio Code
+frontend/.vscode/*
+frontend/!.vscode/settings.json
+frontend/!.vscode/tasks.json
+frontend/!.vscode/launch.json
+frontend/!.vscode/extensions.json
+frontend/.history/*
+frontend/# Miscellaneous
+frontend/.angular
+frontend/.angular/cache
+frontend/.sass-cache/
+frontend/connect.lock
+frontend/coverage
+frontend/libpeerconnection.log
+frontend/testem.log
+frontend/typings
+frontend/# System files
+frontend/.DS_Store
+frontend/Thumbs.db
