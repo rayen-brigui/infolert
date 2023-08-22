@@ -2,7 +2,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
+    "outDir": "./frontend/dist/out-tsc",
+
     "types": []
   },
   "files": [

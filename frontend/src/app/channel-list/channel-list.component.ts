@@ -11,6 +11,7 @@ import { OverlayEventDetail } from '@ionic/core/components';
   styleUrls: ['./channel-list.component.scss'],
   standalone: true,
   imports: [IonicModule, FormsModule, CommonModule],
+  providers: [ DatePipe],
 })
 export class ChannelListComponent {
   mergedNotifications: any[] = []; // This will hold the final merged data
@@ -129,6 +130,8 @@ export class ChannelListComponent {
     title: '',
     TTL: 0,
     application: '',
+  channel: ''
+
   };
   name: string = '';
   cancel() {
@@ -139,8 +142,9 @@ export class ChannelListComponent {
     // Handle the confirmation logic here, e.g., save the name
     this.modal.dismiss({ name: this.name });
   }
-  async openModal(msg: any) {
+  async openModal(msg: any, CN:string) {
     this.msg = msg;
+    this.msg.channel = CN;
     return await this.modal.present();
   }
 
@@ -162,4 +166,5 @@ interface msg {
   body: string;
   createdAt: string;
   title: string;
+  channel: string;
 }

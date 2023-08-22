@@ -110,27 +110,28 @@
     </div>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-list *ngFor="let channel of mergedNotifications">
-    <ion-item-divider color="light">
+    <ion-item-divider
+      style="
+        background-color: rgb(46, 172, 170);
+        color: black;
+        font-size: larger;
+        font-weight: 600px;
+      "
+    >
       {{ channel.title }}
     </ion-item-divider>
 
     <ion-item
       *ngFor="let message of channel.messages"
-      (click)="openModal(message)"
+      (click)="openModal(message,channel.title)"
     >
-      <!-- Add badge to mark read notifications -->
       <ion-badge *ngIf="!message.read" color="success">New</ion-badge>
-
-      <ion-label>{{ message.title }}</ion-label>
+      <ion-title class="notif-title">{{ message.title }}</ion-title>
       <ion-label slot="end" style="font-size: 10px">
         {{ message.createdAt | date }} {{ message.createdAt | date : "h:mm a" }}
       </ion-label>
-      <ion-label slot="end" style="font-size: 10px">
-  {{ getTimeSinceReceived(message.createdAt) }} ago
-</ion-label>
     </ion-item>
   </ion-list>
   <div style="text-align: center">
@@ -152,12 +153,12 @@
               ><ion-icon name="arrow-undo-outline" size="large"></ion-icon
             ></ion-button>
           </ion-buttons>
-          <ion-title style="text-align: center">Message</ion-title>
+          <ion-title style="text-align: center">{{ msg.title }}</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-item>
-          <ion-label>{{ msg.application }}</ion-label>
+          <ion-label>{{ msg.channel }}</ion-label>
         </ion-item>
 
         <ion-card>
