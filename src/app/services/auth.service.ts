@@ -10,8 +10,6 @@ export class AuthService {
 
   // Simulate a login process
   login(email: string, password: string): boolean {
-    // Implement your actual authentication logic here
-    // For the sake of example, let's assume successful login
     if (email === 'user@example.com' && password === 'password') {
       this.Authenticated = true;
       return true;
