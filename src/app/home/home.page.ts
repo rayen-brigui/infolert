@@ -7,6 +7,8 @@ import { IonicSlides } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChannelListComponent } from '../channel-list/channel-list.component';
 import { NavController } from '@ionic/angular';
+import { subscriptions, Notifications } from '../Data';
+
 // register Swiper custom elements
 register();
 
@@ -27,69 +29,70 @@ export class HomePage {
   }
   swiperModules = [IonicSlides];
   component = ChannelListComponent;
-  subscriptions = [
-    {
-      SK: 'App2-Channel2',
-      ChannelName: 'App2-Channel2',
-      Description: 'Channel2',
-      PK: 'App2',
-    },
-    {
-      SK: 'App3-defaultChannel',
-      ChannelName: 'App3-defaultChannel',
-      Description: 'default Channel',
-      PK: 'App3',
-    },
-    {
-      SK: 'App3-Channel1',
-      ChannelName: 'App3-Channel1',
-      Description: 'Channel1',
-      PK: 'App3',
-    },
-    {
-      SK: 'App4-defaultChannel',
-      ChannelName: 'App4-defaultChannel',
-      Description: 'default Channel',
-      PK: 'App4',
-    },
-    {
-      SK: 'App4-Channel1',
-      ChannelName: 'App4-Channel1',
-      Description: 'Channel1',
-      PK: 'App4',
-    },
-    {
-      SK: 'App1-defaultChannel',
-      ChannelName: 'App1-defaultChannel',
-      Description: 'default Channel',
-      PK: 'App1',
-    },
-    {
-      SK: 'App1-Channel1',
-      ChannelName: 'App1-Channel1',
-      Description: 'Channel1',
-      PK: 'App1',
-    },
-    {
-      SK: 'App2-defaultChannel',
-      ChannelName: 'App2-defaultChannel',
-      Description: 'default Channel',
-      PK: 'App2',
-    },
-    {
-      SK: 'App2-defaultChannel',
-      ChannelName: 'App2-defaultChannel',
-      Description: 'default Channel',
-      PK: 'App5',
-    },
-    {
-      SK: 'App6-defaultChannel',
-      ChannelName: 'App6-defaultChannel',
-      Description: 'default Channel',
-      PK: 'App6',
-    },
-    // Add more entries here
-  ];
+  subscriptions = subscriptions
+  // subscriptions = [
+  //   {
+  //     SK: 'App2-Channel2',
+  //     ChannelName: 'App2-Channel2',
+  //     Description: 'Channel2',
+  //     PK: 'App2',
+  //   },
+  //   {
+  //     SK: 'App3-defaultChannel',
+  //     ChannelName: 'App3-defaultChannel',
+  //     Description: 'default Channel',
+  //     PK: 'App3',
+  //   },
+  //   {
+  //     SK: 'App3-Channel1',
+  //     ChannelName: 'App3-Channel1',
+  //     Description: 'Channel1',
+  //     PK: 'App3',
+  //   },
+  //   {
+  //     SK: 'App4-defaultChannel',
+  //     ChannelName: 'App4-defaultChannel',
+  //     Description: 'default Channel',
+  //     PK: 'App4',
+  //   },
+  //   {
+  //     SK: 'App4-Channel1',
+  //     ChannelName: 'App4-Channel1',
+  //     Description: 'Channel1',
+  //     PK: 'App4',
+  //   },
+  //   {
+  //     SK: 'App1-defaultChannel',
+  //     ChannelName: 'App1-defaultChannel',
+  //     Description: 'default Channel',
+  //     PK: 'App1',
+  //   },
+  //   {
+  //     SK: 'App1-Channel1',
+  //     ChannelName: 'App1-Channel1',
+  //     Description: 'Channel1',
+  //     PK: 'App1',
+  //   },
+  //   {
+  //     SK: 'App2-defaultChannel',
+  //     ChannelName: 'App2-defaultChannel',
+  //     Description: 'default Channel',
+  //     PK: 'App2',
+  //   },
+  //   {
+  //     SK: 'App2-defaultChannel',
+  //     ChannelName: 'App2-defaultChannel',
+  //     Description: 'default Channel',
+  //     PK: 'App5',
+  //   },
+  //   {
+  //     SK: 'App6-defaultChannel',
+  //     ChannelName: 'App6-defaultChannel',
+  //     Description: 'default Channel',
+  //     PK: 'App6',
+  //   },
+  //   // Add more entries here
+  // ];
 
   uniquePKs: string[] = [];
   uniquePKArray: { PK: string; Descriptions: string[] }[] = [];

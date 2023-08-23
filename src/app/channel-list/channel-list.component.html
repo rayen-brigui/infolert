@@ -125,9 +125,11 @@
 
     <ion-item
       *ngFor="let message of channel.messages"
-      (click)="openModal(message,channel.title)"
+      (click)="openModal(message, channel.title)"
     >
-      <ion-badge *ngIf="!message.read" color="success">New</ion-badge>
+      <ion-badge *ngIf="!message.read" color="success" slot="start"
+        >New</ion-badge
+      >
       <ion-title class="notif-title">{{ message.title }}</ion-title>
       <ion-label slot="end" style="font-size: 10px">
         {{ message.createdAt | date }} {{ message.createdAt | date : "h:mm a" }}
@@ -144,6 +146,7 @@
     [initialBreakpoint]="0.5"
     [breakpoints]="[0, 1]"
     handleBehavior="cycle"
+    id="open-modal"
   >
     <ng-template class="block">
       <ion-header>

@@ -10,7 +10,7 @@
 }
 
 .notif-title {
-  padding-left: 15px;
+  padding-left: 0px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 15px;
 }
@@ -43,12 +43,6 @@ ion-title {
   padding: 10px;
 }
 
-ion-accordion {
-  border: 1px solid #f8f8f8;
-  border-radius: 5px;
-  margin: 10px 0;
-  background-color: #00000056;
-}
 
 ion-item[slot='header'] {
   background-color: #000000;
