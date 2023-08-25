@@ -55,7 +55,7 @@ export const Notifications = [
   {
     PK: 'App1-Channel1',
     SK: 'b6d9f5150955',
-    body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
+    body: 'vLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
     createdAt: '2023-05-11 08:42:01.490251',
     title: 'Critical Notification',
     TTL: 1684399321,
