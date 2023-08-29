@@ -8,6 +8,13 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChannelListComponent } from '../channel-list/channel-list.component';
 import { NavController } from '@ionic/angular';
 import { subscriptions, Notifications } from '../Data';
+import {
+  ActionPerformed,
+  PushNotificationSchema,
+  PushNotifications,
+  Token,
+} from '@capacitor/push-notifications';
+
 
 // register Swiper custom elements
 register();
@@ -21,7 +28,7 @@ register();
   imports: [IonicModule, FormsModule, CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   constructor(private navCtrl: NavController) {}
 
   navigateToChannelList(object: string) {
@@ -29,7 +36,7 @@ export class HomePage {
   }
   swiperModules = [IonicSlides];
   component = ChannelListComponent;
-  subscriptions = subscriptions
+  subscriptions = subscriptions;
   // subscriptions = [
   //   {
   //     SK: 'App2-Channel2',
@@ -98,6 +105,47 @@ export class HomePage {
   uniquePKArray: { PK: string; Descriptions: string[] }[] = [];
   ngOnInit() {
     this.extractUniquePKs();
+    console.log('Initializing HomePage');
+
+    // Request permission to use push notifications
+    // iOS will prompt user and return if they granted permission or not
+    // Android will just grant without prompting
+    PushNotifications.requestPermissions().then((result) => {
+      if (result.receive === 'granted') {
+        // Register with Apple / Google to receive push via APNS/FCM
+        PushNotifications.register();
+      } else {
+        // Show some error
+        console.log('====================================');
+        console.log('can not register :)');
+        console.log('====================================');
+      }
+    });
+
+    PushNotifications.addListener('registration', (token: Token) => {
+      alert('Push registration success, token: ' + token.value);
+      console.log('====================================');
+      console.log(token.value);
+      console.log('====================================');
+    });
+
+    PushNotifications.addListener('registrationError', (error: any) => {
+      alert('Error on registration: ' + JSON.stringify(error));
+    });
+
+    PushNotifications.addListener(
+      'pushNotificationReceived',
+      (notification: PushNotificationSchema) => {
+        alert('Push received: ' + JSON.stringify(notification));
+      }
+    );
+
+    PushNotifications.addListener(
+      'pushNotificationActionPerformed',
+      (notification: ActionPerformed) => {
+        alert('Push action performed: ' + JSON.stringify(notification));
+      }
+    );
   }
   private extractUniquePKs() {
     for (const subscription of this.subscriptions) {

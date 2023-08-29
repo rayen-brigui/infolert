@@ -151,11 +151,11 @@
     <ng-template class="block">
       <ion-header>
         <ion-toolbar>
-          <ion-buttons>
-            <ion-button (click)="cancel()"
+          
+            <button (click)="dismissModal()"
               ><ion-icon name="arrow-undo-outline" size="large"></ion-icon
-            ></ion-button>
-          </ion-buttons>
+            ></button>
+          
           <ion-title style="text-align: center">{{ msg.title }}</ion-title>
         </ion-toolbar>
       </ion-header>

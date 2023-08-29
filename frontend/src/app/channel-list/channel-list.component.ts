@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { subscriptions, Notifications } from '../Data';
   imports: [IonicModule, FormsModule, CommonModule],
   providers: [DatePipe],
 })
-export class ChannelListComponent {
+export class ChannelListComponent implements AfterViewInit {
   mergedNotifications: any[] = []; // This will hold the final merged data
   constructor(private route: ActivatedRoute, private datePipe: DatePipe) {}
 
@@ -41,8 +41,8 @@ export class ChannelListComponent {
     this.subscriptions = this.subscriptions.filter((sub) => sub.PK === md);
     // add here the code i requested
     function addNotificationsToSubscriptions(
-      subscriptions:Subscription[],
-      notifications:Notification[]
+      subscriptions: Subscription[],
+      notifications: Notification[]
     ) {
       for (const notification of notifications) {
         const matchingSubscription = subscriptions.find(
@@ -87,9 +87,11 @@ export class ChannelListComponent {
   }
 
   /******************* */
+  @ViewChild('modal', { static: false }) modal!: IonModal;
 
-  @ViewChild(IonModal)
-  modal!: IonModal;
+  ngAfterViewInit() {
+    // Now you can safely use this.modal
+  }
   message: string = '';
   msg: msg = {
     PK: '',
@@ -102,17 +104,19 @@ export class ChannelListComponent {
     channel: '',
   };
   name: string = '';
-  cancel() {
-    this.modal.dismiss();
+  modalVisible = false; // Add this property
+
+  dismissModal() {
+    this.modalVisible = false; // Hide the modal content
+    setTimeout(() => {
+      this.modal.dismiss(); // Dismiss the modal after a small delay
+    }, 300); // Adjust the delay as needed
   }
 
-  confirm() {
-    // Handle the confirmation logic here, e.g., save the name
-    this.modal.dismiss({ name: this.name });
-  }
   async openModal(msg: any, CN: string) {
     this.msg = msg;
     this.msg.channel = CN;
+    this.modalVisible = true; // Show the modal content
     return await this.modal.present();
   }
 
@@ -126,8 +130,6 @@ export class ChannelListComponent {
   public alertButtons = ['OK'];
 
   /************ */
-
-  
 }
 
 interface msg {
