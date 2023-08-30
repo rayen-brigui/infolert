@@ -109,7 +109,7 @@ export class ChannelListComponent implements AfterViewInit {
   dismissModal() {
     this.modalVisible = false; // Hide the modal content
     setTimeout(() => {
-      this.modal.dismiss(); // Dismiss the modal after a small delay
+      this.modal.dismiss(); // Dismiss the modal aftera
     }, 300); // Adjust the delay as needed
   }
 
@@ -118,6 +118,7 @@ export class ChannelListComponent implements AfterViewInit {
     this.msg.channel = CN;
     this.modalVisible = true; // Show the modal content
     return await this.modal.present();
+
   }
 
   onWillDismiss(event: Event) {
