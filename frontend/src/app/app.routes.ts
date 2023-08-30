@@ -6,7 +6,7 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: '',
@@ -19,11 +19,13 @@ export const routes: Routes = [
       import('./channel-list/channel-list.component').then(
         (m) => m.ChannelListComponent
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'about',
     loadComponent: () =>
       import('./about/about.component').then((m) => m.AboutComponent),
+    canActivate: [AuthGuard],
   },
   {
     path: 'signin',

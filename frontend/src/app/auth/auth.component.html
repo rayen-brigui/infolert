@@ -5,13 +5,15 @@
 <ion-content>
   <!-- Login Form -->
   <ion-item class="auth-form" *ngIf="!showSignUpForm">
-    <ion-label position="floating">Email</ion-label>
-    <ion-input type="email" [(ngModel)]="loginEmail"></ion-input>
+    <ion-input type="email" [(ngModel)]="loginEmail" label="Email"></ion-input>
   </ion-item>
 
   <ion-item class="auth-form" *ngIf="!showSignUpForm">
-    <ion-label position="floating">Password</ion-label>
-    <ion-input type="password" [(ngModel)]="loginPassword"></ion-input>
+    <ion-input
+      type="password"
+      [(ngModel)]="loginPassword"
+      label="Password"
+    ></ion-input>
   </ion-item>
 
   <ion-button expand="full" (click)="login()" *ngIf="!showSignUpForm"
@@ -21,11 +23,11 @@
   <!-- Sign Up Form -->
   <ion-item class="auth-form" *ngIf="showSignUpForm">
     <ion-label position="floating">First Name</ion-label>
-    <ion-input type="text" [(ngModel)]="signupFname"></ion-input>
-  </ion-item><ion-item class="auth-form" *ngIf="showSignUpForm">
+    <ion-input type="text" [(ngModel)]="signupFname"></ion-input> </ion-item
+  ><ion-item class="auth-form" *ngIf="showSignUpForm">
     <ion-label position="floating">Last Name</ion-label>
-    <ion-input type="text" [(ngModel)]="signupLname" ></ion-input>
-  </ion-item><ion-item class="auth-form" *ngIf="showSignUpForm">
+    <ion-input type="text" [(ngModel)]="signupLname"></ion-input> </ion-item
+  ><ion-item class="auth-form" *ngIf="showSignUpForm">
     <ion-label position="floating">Email</ion-label>
     <ion-input type="email" [(ngModel)]="signupEmail"></ion-input>
   </ion-item>

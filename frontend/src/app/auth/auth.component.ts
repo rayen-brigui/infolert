@@ -6,7 +6,6 @@ import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -31,13 +30,17 @@ export class AuthComponent implements OnInit {
   showSignUpForm: boolean = false;
   route = new Router();
   // Login method
-  login() {
+ login() {
     if (this.loginEmail !== '' || this.loginPassword !== '') {
-      this.navCtrl.navigateForward('/');
+    let  auth = new AuthService(this.route);
+  let res=   auth.login(this.loginEmail, this.loginPassword)
+      
+    console.log('==============1==================');
+    console.log(res);
+    console.log('====================================');
+      
 
-      console.log('====================================');
-      console.log('suppose temchi');
-      console.log('====================================');
+
     }
     // Implement your login logic here
     // You can use this.loginEmail and this.loginPassword to access the user's input
